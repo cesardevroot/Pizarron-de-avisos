@@ -30,6 +30,12 @@ def update
   end
 end
 
+def destroy
+  @comment.destroy
+  redirect_to message_path(@message)
+end
+
+
 
 
 private
