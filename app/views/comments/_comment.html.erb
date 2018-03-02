@@ -1,7 +1,13 @@
 <p><%= comment.content %></p>
+<p>Posteado por <%= comment.user.email %> <%= time_ago_in_words(comment.created_at) %> atrás </P>
+
+
+	<% if user_signed_in? %>
+	<% if comment.user_id == current_user.id %>
 
 <%= link_to "Editar", edit_message_comment_path(comment.message, comment) %>
 <%= link_to "Borrar", message_comment_path(comment.message, comment), method: :delete, data: { confirm: "Estas seguro ?"} %>
-
+   <% end %>
+ <% end %>
 
 
