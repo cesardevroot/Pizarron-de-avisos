@@ -1,19 +1,24 @@
-<h2><%= @message.title %></h2>
-<p>Posteado por <%= @message.user.email %> <%= time_ago_in_words(@message.created_at) %> atrás</p>
-<p><%= @message.description %></p>
+<div class="col-md-8 col-md-offset-2">
+	<div class="message-show">
+		
+	<h2><%= @message.title %></h2>
+	<p>Posteado por <%= @message.user.email %> <%= time_ago_in_words(@message.created_at) %> atrás</p>
+	<p><%= @message.description %></p>
 
-<h3>Comentarios:</h3>
-<%= render @message.comments %>
+	<h3>Comentarios:</h3>
+	<%= render @message.comments %>
 
 
-<h3>Contestar Mensaje:</h3>
-<%= render 'comments/form'%> 
+	<h3>Contestar Mensaje:</h3>
+	<%= render 'comments/form'%> 
 
 
-<%= link_to "Volver", root_path %>
-<% if user_signed_in? %>
-<% if @message.user_id == current_user.id %>
- <%= link_to "Editar", edit_message_path(@message) %>
- <%= link_to "Borrar", message_path(@message), method: :delete, data: { confirm: "¿ Estás seguro ?"} %>
- <% end %>
-<% end %>
+	<%= link_to "Volver", root_path %>
+	<% if user_signed_in? %>
+	<% if @message.user_id == current_user.id %>
+	 <%= link_to "Editar", edit_message_path(@message) %>
+	 <%= link_to "Borrar", message_path(@message), method: :delete, data: { confirm: "¿ Estás seguro ?"} %>
+	 <% end %>
+	<% end %>
+   </div>
+</div>

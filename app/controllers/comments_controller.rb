@@ -45,8 +45,7 @@ end
 
 
 def find_comment
-
-    @comment = @message.comments.find(params[:id])
+  @comment = @message.comments.find(params[:id])
 end
 
 end
